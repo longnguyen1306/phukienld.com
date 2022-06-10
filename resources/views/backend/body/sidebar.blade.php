@@ -27,7 +27,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('admin.index') }}" class="nav-link">
+                    <a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -35,20 +35,20 @@
                     </a>
                 </li>
                 {{---------------------------------}}
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item {{ Request::is('admin/menus*') ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/menus*') ? 'active' : '' }}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            Extras
+                            Menus
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="../examples/blank.html" class="nav-link active">
+                            <a href="{{ route('admin.menus.header-menu.index') }}" class="nav-link {{ Request::is('admin/menus*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Blank Page</p>
+                                <p>Header Menu</p>
                             </a>
                         </li>
 

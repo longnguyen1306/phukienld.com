@@ -8,8 +8,6 @@
             <a href="{{ route('admin.index') }}" class="nav-link">Trang chủ</a>
         </li>
     </ul>
-
-    <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
         <!-- Messages Dropdown Menu -->
