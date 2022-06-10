@@ -2043,7 +2043,7 @@ span.notify-right{
 
 }
 .product-list li .add-to-cart:hover{
-  background-color: rgba(255,51,102,0.5);
+  background-color: #ffb817;
 }
 .product-list li .add-to-cart a{
     background: url("../images/add-cart.png") no-repeat left center;
@@ -2791,11 +2791,11 @@ span.notify-right{
   z-index: 9999;
   right: 10px;
   bottom: 32px;
-  background: #666;
+  background: #ffb817;
   display: none;
 }
 .scroll_top:hover{
-  background: #F36;
+  background: #ffb817;
 }
 
 .scroll_top:before {

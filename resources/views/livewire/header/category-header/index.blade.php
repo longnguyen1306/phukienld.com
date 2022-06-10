@@ -5,7 +5,7 @@
     </h4>
     <div class="vertical-menu-content is-home">
         <ul class="vertical-menu-list">
-            <li><a href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/1.png">Electronics</a></li>
+            <li><a href="{{ route('home.category', 'test-slug') }}"><img class="icon-menu" alt="Funky roots" src="assets/data/1.png">Electronics</a></li>
             <li><a href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/3.png">Smartphone &amp; Tablets</a></li>
             <li><a href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/4.png">Health &amp; Beauty Bags</a></li>
             <li><a href="#"><img class="icon-menu" alt="Funky roots" src="assets/data/6.png">Toys &amp; Hobbies</a></li>
