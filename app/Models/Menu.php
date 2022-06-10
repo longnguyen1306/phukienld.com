@@ -17,6 +17,10 @@ class Menu extends Model
         'link',
     ];
 
+    public function getAllMenu() {
+        return Menu::all();
+    }
+
     public function getAllMenuPaginate() {
         $menus = Menu::latest()->paginate(3);
         return $menus;

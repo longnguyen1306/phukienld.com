@@ -10,23 +10,23 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ route('home.index') }}">Trang chủ</a></li>
                 <li class="dropdown">
-                    <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">Sản phẩm</a>
                     <ul class="dropdown-menu container-fluid">
                         <li class="block-container">
                             <ul class="block">
-                                <li class="link_container"><a href="#">Mobile</a></li>
-                                <li class="link_container"><a href="#">Tablets</a></li>
-                                <li class="link_container"><a href="#">Laptop</a></li>
-                                <li class="link_container"><a href="#">Memory Cards</a></li>
-                                <li class="link_container"><a href="#">Accessories</a></li>
+                                @foreach($categories as $cat)
+                                <li class="link_container"><a href="{{ route('home.category',$cat->slug) }}">{{ $cat->name }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="category.html">Chính Sách</a></li>
-                <li><a href="category.html">Bài Viết</a></li>
-                <li><a href="category.html">Liên hệ</a></li>
+                @if($menus)
+                    @foreach($menus as $menu)
+                        <li><a href="{{ $menu->link }}" target="_blank">{{ $menu->name }}</a></li>
+                    @endforeach
+                @endif
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>

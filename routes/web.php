@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\HomeCategoryController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\AdminMenuController;
+use App\Http\Controllers\Backend\AdminCategoryController;
 
 //frontend route
 Route::get('/', [HomeindexController::class, 'index'])->name('home.index');
@@ -29,6 +30,18 @@ Route::prefix('admin')->middleware('admin.login')->name('admin.')->group(functio
             Route::get('edit/{id}', 'edit')->name('edit');
             Route::post('update/{id}', 'update')->name('update');
             Route::get('delete/{id}', 'delete')->name('delete');
+        });
+    });
+    //categories
+    Route::prefix('categories')->name('categories.')->group(function () {
+        Route::prefix('product-category')->controller(AdminCategoryController::class)->name('product-category.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('change-status/{id}', 'changeStatus')->name('change-status');
         });
     });
 

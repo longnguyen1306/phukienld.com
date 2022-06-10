@@ -34,7 +34,7 @@
                         </p>
                     </a>
                 </li>
-                {{---------------------------------}}
+                {{--menus--}}
                 <li class="nav-item {{ Request::is('admin/menus*') ? 'menu-is-opening menu-open' : '' }}">
                     <a href="#" class="nav-link {{ Request::is('admin/menus*') ? 'active' : '' }}">
                         <i class="nav-icon far fa-plus-square"></i>
@@ -54,7 +54,26 @@
 
                     </ul>
                 </li>
+                {{--danh mục--}}
+                <li class="nav-item {{ Request::is('admin/categories*') ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/categories*') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Danh mục
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
 
+                        <li class="nav-item">
+                            <a href="{{ route('admin.categories.product-category.index') }}" class="nav-link {{ Request::is('admin/categories/product-category*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh mục sản phẩm</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
