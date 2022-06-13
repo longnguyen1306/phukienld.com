@@ -25,6 +25,12 @@ class Category extends Model
         return $cats;
     }
 
+    public function getAllCatByStatusLimit($number) {
+        $cats = Category::where(['status' => 1])->inRandomOrder()->limit($number)->get();
+
+        return $cats;
+    }
+
     public function getAllCategoryPaginate() {
         $category = Category::latest()->paginate(3);
         return $category;

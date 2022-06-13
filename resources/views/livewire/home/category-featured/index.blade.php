@@ -2,7 +2,7 @@
     <nav class="navbar nav-menu nav-menu-red show-brand">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/fashion.png" />SẠC DỰ PHÒNG</a></div>
+            <div class="navbar-brand"><a href="{{ route('home.category', $category->slug)  }}">{{ $category->name }}</a></div>
             <span class="toggle-menu"></span>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
@@ -22,7 +22,7 @@
         <div class="banner-featured">
             <div class="featured-text"><span>Mua ngay</span></div>
             <div class="banner-img">
-                <a href="#"><img alt="Featurered 1" src="/assets/data/f1.jpg" /></a>
+                <a href="#"><img alt="Featurered 1" src="{{ asset($category->image) }}" /></a>
             </div>
         </div>
         <div class="product-featured-content">

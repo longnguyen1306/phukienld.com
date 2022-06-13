@@ -5,9 +5,11 @@
     </h4>
     <div class="vertical-menu-content is-home">
         <ul class="vertical-menu-list">
-            @foreach($cats as $cat)
-            <li><a href="{{ route('home.category', $cat->slug) }}">{{ $cat->name }}</a></li>
-            @endforeach
+            @if($cats)
+                @foreach($cats as $cat)
+                <li><a href="{{ route('home.category', $cat->slug) }}">{{ $cat->name }}</a></li>
+                @endforeach
+            @endif
         </ul>
     </div>
 </div>

@@ -11,7 +11,7 @@ class Functions {
         $filePath = public_path('/images/'.$folder);
         $img = Image::make($image->path());
         $img->resize($w, $h)->save($filePath.'/'.$input['imagename']);
-        $imageLink = '/images/category/'.$input['imagename'];
+        $imageLink = '/images/'.$folder.'/'.$input['imagename'];
 
         return $imageLink;
     }

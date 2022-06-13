@@ -6,9 +6,11 @@
                 <div class="homeslider">
                     <div class="content-slide">
                         <ul id="contenhomeslider">
-                            <li><img alt="Funky roots" src="assets/data/slide.jpg" title="Funky roots" /></li>
-                            <li><img alt="Funky roots" src="assets/data/slide.jpg" title="Funky roots" /></li>
-                            <li><img  alt="Funky roots" src="assets/data/slide.jpg" title="Funky roots" /></li>
+                            @if($homeBanners)
+                                @foreach($homeBanners as $banner)
+                                    <li><img alt="Phụ Kiện LD - {{ $banner->name }}" src="{{ $banner->image }}" title="{{ $banner->name }}" /></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>

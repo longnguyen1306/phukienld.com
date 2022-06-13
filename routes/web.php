@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\AdminMenuController;
 use App\Http\Controllers\Backend\AdminCategoryController;
+use App\Http\Controllers\Backend\AdminBannerController;
 
 //frontend route
 Route::get('/', [HomeindexController::class, 'index'])->name('home.index');
@@ -44,7 +45,18 @@ Route::prefix('admin')->middleware('admin.login')->name('admin.')->group(functio
             Route::get('change-status/{id}', 'changeStatus')->name('change-status');
         });
     });
-
+    //banners
+    Route::prefix('banners')->name('banners.')->group(function () {
+        Route::prefix('home-banner')->controller(AdminBannerController::class)->name('home-banner.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('change-status/{id}', 'changeStatus')->name('change-status');
+        });
+    });
 });
 Route::get('admin/login', [AuthController::class, 'login'])->name('admin.login');
 Route::post('admin/login', [AuthController::class, 'loginSubmit'])->name('admin.login');
