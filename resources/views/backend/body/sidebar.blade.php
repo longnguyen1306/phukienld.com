@@ -71,6 +71,12 @@
                                 <p>Danh mục sản phẩm</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.categories.brand.index') }}" class="nav-link {{ Request::is('admin/categories/brand*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thương hiệu</p>
+                            </a>
+                        </li>
 
                     </ul>
                 </li>

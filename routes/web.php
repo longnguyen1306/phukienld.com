@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\AdminMenuController;
 use App\Http\Controllers\Backend\AdminCategoryController;
 use App\Http\Controllers\Backend\AdminBannerController;
+use App\Http\Controllers\Backend\AdminBrandController;
 
 //frontend route
 Route::get('/', [HomeindexController::class, 'index'])->name('home.index');
@@ -35,7 +36,18 @@ Route::prefix('admin')->middleware('admin.login')->name('admin.')->group(functio
     });
     //categories
     Route::prefix('categories')->name('categories.')->group(function () {
+        //product-category
         Route::prefix('product-category')->controller(AdminCategoryController::class)->name('product-category.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('change-status/{id}', 'changeStatus')->name('change-status');
+        });
+        //brans
+        Route::prefix('brand')->controller(AdminBrandController::class)->name('brand.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('create', 'create')->name('create');
             Route::post('store', 'store')->name('store');
