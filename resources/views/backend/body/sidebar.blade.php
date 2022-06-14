@@ -100,6 +100,26 @@
 
                     </ul>
                 </li>
+                {{--sản phẩm--}}
+                <li class="nav-item {{ Request::is('admin/products*') ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Sản phẩm
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.list-product.index') }}" class="nav-link {{ Request::is('admin/products/list-product*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách sản phẩm</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
