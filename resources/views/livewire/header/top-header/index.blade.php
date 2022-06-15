@@ -17,15 +17,28 @@
         </div>
 
         <div id="user-info-top" class="user-info pull-right">
-            <div class="dropdown">
+            @if(auth()->check())
+                <div class="dropdown">
+                    <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                        <span>Xin chào: {{ auth()->user()->name }}</span>
+                    </a>
+                    <ul class="dropdown-menu mega_dropdown" role="menu">
+                        <li><a href="l">Tài khoản</a></li>
+                        <li><a href="l">Đơn hàng</a></li>
+                        <li><a href="{{route('home.logout')}}">Đăng xuất</a></li>
+                    </ul>
+            </div>
+            @else
+                <div class="dropdown">
                 <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                     <span>Tài khoản</span>
                 </a>
                 <ul class="dropdown-menu mega_dropdown" role="menu">
                     <li><a href="login.html">Đăng ký</a></li>
-                    <li><a href="#">Đăn nhập</a></li>
+                    <li><a href="{{ route('home.login') }}">Đăn nhập</a></li>
                 </ul>
             </div>
+            @endif
         </div>
     </div>
 </div>

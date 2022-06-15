@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeindexController;
 use App\Http\Controllers\Frontend\HomeProductController;
 use App\Http\Controllers\Frontend\HomeCategoryController;
+use App\Http\Controllers\Frontend\HomeAuthController;
 //admin controller
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
@@ -18,6 +19,10 @@ use App\Http\Controllers\Backend\AdminProductController;
 Route::get('/', [HomeindexController::class, 'index'])->name('home.index');
 Route::get('/san-pham/{slug}.html', [HomeProductController::class, 'index'])->name('home.product');
 Route::get('/danh-muc/{slug?}', [HomeCategoryController::class, 'index'])->name('home.category');
+
+Route::get('logout', [HomeAuthController::class, 'logout'])->name('home.logout');
+Route::get('dang-nhap', \App\Http\Livewire\Auth\Login::class)->name('home.login');
+Route::get('dang-ky', \App\Http\Livewire\Auth\Register::class)->name('home.register');
 
 
 //admin route
