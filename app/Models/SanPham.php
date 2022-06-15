@@ -32,6 +32,32 @@ class SanPham extends Model
         return SanPham::with('category')->latest()->paginate(5);
     }
 
+    public function getAllProductNew() {
+        return SanPham::latest()->paginate(4)->toArray();
+    }
+
+    public function getRelateProduct($id) {
+        return SanPham::with('category')
+            ->where([['so_luong_sp', '>', 1]])
+            ->whereNotIn('id',  [$id])->inRandomOrder()->take(8)->get();
+    }
+
+    public function getProductByPageNumber($page) {
+        return SanPham::latest()->paginate(4, ['*'], 'page', $page)->toArray();
+    }
+
+    public function getAllProduct() {
+        return SanPham::with('category')->latest()->get();
+    }
+
+    public function getProductByCatId($catId) {
+        return SanPham::with('category')->where(['danh_muc_id'=> $catId])->get();
+    }
+
+    public function getProductBySlug($slug) {
+        return SanPham::with('category')->where(['slug' => $slug])->first();
+    }
+
     public function getProductById($id) {
         return SanPham::findOrFail($id);
     }

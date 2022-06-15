@@ -17,8 +17,7 @@ use App\Http\Controllers\Backend\AdminProductController;
 //frontend route
 Route::get('/', [HomeindexController::class, 'index'])->name('home.index');
 Route::get('/san-pham/{slug}.html', [HomeProductController::class, 'index'])->name('home.product');
-Route::get('/san-pham/{slug}.html', [HomeProductController::class, 'index'])->name('home.product');
-Route::get('/danh-muc/{slug}', [HomeCategoryController::class, 'index'])->name('home.category');
+Route::get('/danh-muc/{slug?}', [HomeCategoryController::class, 'index'])->name('home.category');
 
 
 //admin route

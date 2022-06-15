@@ -14,6 +14,7 @@ class ProductImage extends Model
         'image',
     ];
 
+
     public function addProductImg($productId, $imgPath) {
         $img = ProductImage::create([
             'product_id' => $productId,

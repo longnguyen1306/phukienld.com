@@ -7,13 +7,11 @@
             <div class="layered layered-category">
                 <div class="layered-content">
                     <ul class="tree-menu">
-                        <li class="active"><span></span><a href="#">T-shirts</a></li>
-                        <li><span></span><a href="#">Dresses</a></li>
-                        <li><span></span><a href="#">Jackets and coats </a></li>
-                        <li><span></span><a href="#">Knitted</a></li>
-                        <li><span></span><a href="#">Pants</a></li>
-                        <li><span></span><a href="#">Bags & Shoes</a></li>
-                        <li><span></span><a href="#">Best selling</a></li>
+                        @foreach($categories as $cat)
+                        <li @if($product->category->id === $cat->id) class="active" @endif><span></span>
+                            <a href="{{ route('home.category', $cat->slug) }}">{{ $cat->name }}</a>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -23,21 +21,29 @@
     <!-- ./block category  -->
     <!-- block best sellers -->
     <div class="block left-module">
-        <p class="title_block">Sản phẩm bán chạy</p>
+        <p class="title_block">Sản phẩm mới</p>
         <div class="block_content">
             <div class="owl-carousel owl-best-sell" data-loop="true" data-nav = "false" data-margin = "0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause = "true" data-items="1">
+                @for($i=1;$i<=$newProduct['last_page'];$i++)
                 <ul class="products-block best-sell">
+                    @foreach($itemNewProduct->getProductByPageNumber($i)['data'] as $item)
                     <li>
                         <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
+                            <a href="{{ route('home.product', $item['slug']) }}">
+                                <img src="{{ asset($item['anh_dai_dien']) }}" alt="{{$item['ten']}}">
                             </a>
                         </div>
                         <div class="products-block-right">
                             <p class="product-name">
-                                <a href="#">Woman Within Plus Size Flared</a>
+                                <a href="{{ route('home.product', $item['slug']) }}">
+                                    {{ \Illuminate\Support\Str::limit($item['ten'], 35) }}
+                                </a>
                             </p>
-                            <p class="product-price">$38,95</p>
+                            @if($item['gia_giam'] > 0)
+                            <p class="product-price">{{ number_format($item['gia_giam']) }} đ</p>
+                            @else
+                            <p class="product-price">{{ number_format($item['gia']) }} đ</p>
+                            @endif
                             <p class="product-star">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -47,109 +53,9 @@
                             </p>
                         </div>
                     </li>
-                    <li>
-                        <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/p11.jpg" alt="SPECIAL PRODUCTS">
-                            </a>
-                        </div>
-                        <div class="products-block-right">
-                            <p class="product-name">
-                                <a href="#">Woman Within Plus Size Flared</a>
-                            </p>
-                            <p class="product-price">$38,95</p>
-                            <p class="product-star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/p12.jpg" alt="SPECIAL PRODUCTS">
-                            </a>
-                        </div>
-                        <div class="products-block-right">
-                            <p class="product-name">
-                                <a href="#">Plus Size Rock Star Skirt</a>
-                            </p>
-                            <p class="product-price">$38,95</p>
-                            <p class="product-star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </p>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
-                <ul class="products-block best-sell">
-                    <li>
-                        <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/p13.jpg" alt="SPECIAL PRODUCTS">
-                            </a>
-                        </div>
-                        <div class="products-block-right">
-                            <p class="product-name">
-                                <a href="#">Woman Within Plus Size Flared</a>
-                            </p>
-                            <p class="product-price">$38,95</p>
-                            <p class="product-star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/p14.jpg" alt="SPECIAL PRODUCTS">
-                            </a>
-                        </div>
-                        <div class="products-block-right">
-                            <p class="product-name">
-                                <a href="#">Woman Within Plus Size Flared</a>
-                            </p>
-                            <p class="product-price">$38,95</p>
-                            <p class="product-star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="products-block-left">
-                            <a href="#">
-                                <img src="/assets/data/p15.jpg" alt="SPECIAL PRODUCTS">
-                            </a>
-                        </div>
-                        <div class="products-block-right">
-                            <p class="product-name">
-                                <a href="#">Plus Size Rock Star Skirt</a>
-                            </p>
-                            <p class="product-price">$38,95</p>
-                            <p class="product-star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+                @endfor
             </div>
         </div>
     </div>

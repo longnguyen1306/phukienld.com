@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeCategoryController extends Controller
 {
-    public function index() {
-        return view('frontend.category.index');
+    public function index($slug=null) {
+        return view('frontend.category.index', compact('slug'));
     }
 }

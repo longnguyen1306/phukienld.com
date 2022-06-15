@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeProductController extends Controller
 {
-    public function index() {
-        return view('frontend.product.index');
+    public function index($slug) {
+        return view('frontend.product.index', compact('slug'));
     }
 }

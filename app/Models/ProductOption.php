@@ -20,6 +20,18 @@ class ProductOption extends Model
         return ProductOption::where(['id_sp' => $id])->get();
     }
 
+    public function getProductOptionMauSac($id) {
+        return ProductOption::where(['id_sp' => $id])->whereNotNull('mau_sac')->get();
+    }
+
+    public function getProductOptionDungLuong($id) {
+        return ProductOption::where(['id_sp' => $id])->whereNotNull('dung_luong')->get();
+    }
+
+    public function getProductOptionChieuDai($id) {
+        return ProductOption::where(['id_sp' => $id])->whereNotNull('chieu_dai')->get();
+    }
+
     public function addProductMauSac($productID, $mauSac) {
         $mauSac = ProductOption::create([
             'id_sp' => $productID,

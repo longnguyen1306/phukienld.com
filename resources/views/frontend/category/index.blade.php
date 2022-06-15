@@ -2,6 +2,6 @@
 
 @section('content')
 
-    @livewire('category.index')
+    @livewire('category.index', ['slug' => $slug])
 
 @endsection

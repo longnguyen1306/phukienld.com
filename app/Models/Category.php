@@ -25,6 +25,10 @@ class Category extends Model
         return $cats;
     }
 
+    public function getCategoryBySlug($slug) {
+        return Category::where(['slug' => $slug])->first();
+    }
+
     public function getAllCatByStatusLimit($number) {
         $cats = Category::where(['status' => 1])->inRandomOrder()->limit($number)->get();
 
@@ -69,5 +73,9 @@ class Category extends Model
             'status' => !$cat->status,
         ]);
         return $category;
+    }
+
+    public function products() {
+        return $this->hasMany(SanPham::class, 'danh_muc_id', 'id');
     }
 }

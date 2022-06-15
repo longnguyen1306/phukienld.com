@@ -3805,6 +3805,7 @@ span.notify-right{
 }
 #product .pb-right-column .info-orther{
   padding-bottom: 5px;
+    border-top: 1px solid #eaeaea;
 }
 #product .pb-right-column .product-desc,
 #product .pb-right-column .form-option,
@@ -3847,7 +3848,7 @@ span.notify-right{
   background: #FAFAFA url("../images/dropdown.png") no-repeat scroll right center;
   display: inline-block;
   border: 1px solid #eaeaea;
-  min-width: 95px;
+  min-width: 110px;
 }
 #product .pb-right-column .form-option .qty{
   width: 40px;

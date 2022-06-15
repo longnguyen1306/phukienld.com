@@ -19,6 +19,10 @@ class Brand extends Model
         return Brand::latest()->paginate(3);
     }
 
+    public function getAllBrand() {
+        return Brand::all();
+    }
+
     public function addBrand($request, $imgPath) {
         $brand = Brand::create([
             'name' => $request->name,

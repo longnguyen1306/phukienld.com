@@ -1,3 +1,11 @@
 .bx-viewport {
     height: 500px !important;
 }
+.add-to-cart-het-hang {
+    background: #d9534f !important;
+    bottom: 0 !important;
+}
+.product-list li .add-to-cart a {
+    background: none;
+    padding-left: 0;
+}
